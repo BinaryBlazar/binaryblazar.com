@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BinaryBlazar – Innovate.</title>
+  <meta name="description" content="BinaryBlazar crafts elegant, maintainable software, AI and hardware solutions that scale efficiently and disrupt traditional industries. | BinaryBlazar: حلول برمجية وذكاء اصطناعي وأجهزة إلكترونية مبتكرة.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="BinaryBlazar – Innovate.">
+  <meta property="og:description" content="Software, AI and hardware solutions that scale efficiently and disrupt traditional industries.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <link rel="preload" href="assets/Cairo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- State controller (CSS-only language switch). Must stay first in <body>. -->
+  <input type="radio" name="lang" id="l-en" class="state" checked aria-label="English">
+  <input type="radio" name="lang" id="l-ar" class="state" aria-label="العربية">
+
+  <!-- Cosmic backdrop -->
+  <div class="cosmos" aria-hidden="true">
+    <div class="nebula"></div>
+    <div class="stars s1"></div>
+    <div class="stars s2"></div>
+    <div class="stars s3"></div>
+    <div class="grid-fx"></div>
+  </div>
+
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.2 3.6 3.2 14.4 0 18M12 3c-3.2 3.6-3.2 14.4 0 18"/></symbol>
+      <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+      <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+      <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0z M12 17v5"/></symbol>
+      <symbol id="i-cluster" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="15" width="18" height="6" rx="1.5"/><path d="M7 6h.01M7 18h.01M12 9v6M17 6h.01M17 18h.01"/></symbol>
+      <symbol id="i-wall" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></symbol>
+      <symbol id="i-robot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5M9 13h.01M15 13h.01M9.5 16.5h5M2.5 13v3M21.5 13v3"/><circle cx="12" cy="3.6" r="1.2"/></symbol>
+      <symbol id="i-flow" viewBox="0 0 24 24"><circle cx="6" cy="5.5" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="12" cy="18.5" r="2.5"/><path d="M6 8c0 4.5 3.5 5.5 6 8M18 8c0 4.5-3.5 5.5-6 8"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-9V3M7.5 14h9"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-4 3-6 6.5-6s6.5 2 6.5 6M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.2c2.4.6 3.5 2.6 3.5 5.8"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2zM4 20a2 2 0 0 0 2 2h13v-4"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.5-5.8M20 4v5h-5"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 17a8 8 0 1 1 16 0M12 17l4-6M7 17h.01M17 17h.01"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.6A8.6 8.6 0 1 1 8.2 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-1.8-1.2-2.2-2.2l.8-1-1-2z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7h.01M12 17v-7M12 13c0-2 1.2-3 2.8-3S17 11 17 13v4"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="BinaryBlazar">
+        <img src="assets/logo-full-white.svg" alt="BinaryBlazar" width="183" height="24">
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about"><span class="en">About</span><span class="ar" lang="ar">من نحن</span></a>
+        <a href="#innovation"><span class="en">Innovation</span><span class="ar" lang="ar">الابتكار</span></a>
+        <a href="#services"><span class="en">Services</span><span class="ar" lang="ar">خدماتنا</span></a>
+        <a href="#values"><span class="en">Values</span><span class="ar" lang="ar">قيمنا</span></a>
+        <a href="#contact"><span class="en">Contact</span><span class="ar" lang="ar">تواصل معنا</span></a>
+        <a class="btn btn-primary btn-sm nav-cta" href="#contact"><span class="en">Contact Us</span><span class="ar" lang="ar">اتصل بنا</span></a>
+      </nav>
+
+      <div class="bar-end">
+        <div class="lang-pill" role="group" aria-label="Language / اللغة">
+          <label for="l-en" class="lp-en">EN</label>
+          <label for="l-ar" class="lp-ar" lang="ar">عربي</label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile dock navigation (JS-free; replaces a hamburger menu) -->
+  <nav class="dock" aria-label="Mobile">
+    <a href="#about"><svg class="ico"><use href="#i-users"/></svg><span class="en">About</span><span class="ar" lang="ar">من نحن</span></a>
+    <a href="#innovation"><svg class="ico"><use href="#i-flask"/></svg><span class="en">Innovation</span><span class="ar" lang="ar">الابتكار</span></a>
+    <a href="#services"><svg class="ico"><use href="#i-cpu"/></svg><span class="en">Services</span><span class="ar" lang="ar">خدماتنا</span></a>
+    <a href="#values"><svg class="ico"><use href="#i-shield"/></svg><span class="en">Values</span><span class="ar" lang="ar">قيمنا</span></a>
+    <a href="#contact"><svg class="ico"><use href="#i-mail"/></svg><span class="en">Contact</span><span class="ar" lang="ar">تواصل</span></a>
+  </nav>
+
+  <main id="top">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="beam" aria-hidden="true"></div>
+
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="dot"></span>
+            <span class="en">Software · AI · Hardware</span>
+            <span class="ar" lang="ar">برمجيات · ذكاء اصطناعي · إلكترونيات</span>
+          </p>
+          <h1>
+            <span class="en">Disrupting industry with <em>innovative solutions</em></span>
+            <span class="ar" lang="ar">إحداث نقلة نوعية من خلال <em>حلول مبتكرة</em></span>
+          </h1>
+          <p class="lead">
+            <span class="en">We craft elegant, maintainable solutions in software, AI, and hardware that scale efficiently and disrupt traditional industries. By combining academic rigor with practical expertise, our team continually pushes boundaries to shape a smarter, more connected future.</span>
+            <span class="ar" lang="ar">نطوّر حلولاً متقنة ومستدامة في مجالات البرمجيات والذكاء الاصطناعي والأجهزة الإلكترونية، تتميز بقابليتها للتوسع بكفاءة عالية وإحداث تحول جذري في القطاعات التقليدية. ومن خلال الجمع بين الأسس الأكاديمية الراسخة والخبرة العملية، يواصل فريقنا دفع حدود الابتكار لصناعة مستقبل أكثر ذكاءً وترابطاً</span>
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#services">
+              <span class="en">Explore services</span><span class="ar" lang="ar">استكشف خدماتنا</span>
+              <svg class="ico arrow"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#contact">
+              <span class="en">Contact us</span><span class="ar" lang="ar">تواصل معنا</span>
+            </a>
+          </div>
+          <ul class="hud" aria-label="Key facts">
+            <li><b dir="ltr">12+</b><span class="en">years building</span><span class="ar" lang="ar">عاماً من البناء</span></li>
+            <li><b dir="ltr">30+</b><span class="en">years combined</span><span class="ar" lang="ar">عاماً من الخبرة</span></li>
+            <li><b dir="ltr">99%</b><span class="en">up-time</span><span class="ar" lang="ar">وقت التشغيل</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit o1"><i></i></div>
+          <div class="orbit o2"><i></i></div>
+          <div class="orbit o3"><i></i></div>
+          <div class="core-glow"></div>
+          <img class="emblem" src="assets/logo-animated.gif" alt="" width="500" height="500">
+
+          <div class="glass float f1">
+            <span class="k"><span class="en">Up-time</span><span class="ar" lang="ar">وقت التشغيل</span></span>
+            <span class="v">99<small>%</small></span>
+            <span class="bar-mini"><i></i></span>
+          </div>
+          <div class="glass float f2">
+            <span class="k"><span class="en">Users</span><span class="ar" lang="ar">المستخدمون</span></span>
+            <span class="v" dir="ltr">258,973,012</span>
+            <span class="delta" dir="ltr">▲ 8.62%</span>
+            <span class="spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll"><span></span></a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section about" id="about">
+      <div class="wrap about-grid">
+        <div class="about-visual reveal">
+          <div class="frame">
+            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+            <img src="assets/robot.webp" alt="AI humanoid robot" width="900" height="1200" loading="lazy">
+            <div class="scan"></div>
+            <div class="tag t1"><i></i><span class="en">Neural core online</span><span class="ar" lang="ar">النواة العصبية تعمل</span></div>
+            <div class="tag t2"><i></i><span class="en">Vision · Language · Motion</span><span class="ar" lang="ar">رؤية · لغة · حركة</span></div>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <p class="kicker"><span class="en">About us</span><span class="ar" lang="ar">من نحن</span></p>
+          <h2>
+            <span class="en">Your partner in <em>AI, Software &amp; Hardware</em></span>
+            <span class="ar" lang="ar">شريككم في <em>البرمجيات والذكاء الاصطناعي والإلكترونيات</em></span>
+          </h2>
+          <p>
+            <span class="en">Previously known as fedasoft, BinaryBlazar has been building and architecting bleeding-edge software and hardware solutions that are maintainable, scalable, and deliver real-world impact for the previous 12+ years. Our elite team brings together strong academic foundations and in-field expertise—totaling 30+ years at some of the world’s leading tech companies.</span>
+            <span class="ar" lang="ar">المعروفة سابقاً باسم <bdi dir="ltr">Fedasoft</bdi>، دأبت <bdi dir="ltr">BinaryBlazar</bdi> على تصميم، تطوير وصناعة حلول برمجية وأجهزة إلكترونية متقدمة منذ أكثر من <bdi dir="ltr">12</bdi> عاماً، تتميز بقابليتها للصيانة والتوسع، وتُحدث أثراً ملموساً في الواقع. ويجمع فريقنا النخبوي بين أسس أكاديمية راسخة وخبرات ميدانية عميقة، بإجمالي يتجاوز <bdi dir="ltr">30</bdi> عاماً من الخبرة المكتسبة في عددٍ من أبرز شركات التقنية العالمية</span>
+          </p>
+          <p>
+            <span class="en">We engineer to perfection with industry-leading technologies, always mindful of budget, timelines, and workflow complexity. From AI-driven applications to advanced hardware design, our passion is to push boundaries, creating innovative solutions that meet today’s needs and anticipate tomorrow’s challenges.</span>
+            <span class="ar" lang="ar">نطوّر حلولنا وفق أعلى معايير الإتقان، معتمدين على أحدث التقنيات الرائدة في الصناعة، مع مراعاة الميزانية والجداول الزمنية وتعقيدات سير العمل. ومن التطبيقات المدعومة بالذكاء الاصطناعي إلى تصميم الأجهزة المتقدمة، يدفعنا شغفنا بالابتكار إلى تجاوز المألوف وتقديم حلول مبتكرة تلبي احتياجات اليوم وتستشرف تحديات الغد</span>
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===================== CLIENTS ===================== -->
+    <section class="section clients" id="clients">
+      <div class="wrap">
+        <header class="section-head center reveal">
+          <img class="clients-mark" src="assets/logo-mark.svg" alt="" width="64" height="64" loading="lazy">
+          <p class="kicker"><span class="en">Some of our work</span><span class="ar" lang="ar">بعض أعمالنا</span></p>
+          <h2>
+            <span class="en">Our <em>engineers</em> have built software for the best organizations worldwide</span>
+            <span class="ar" lang="ar">ساهم <em>مهندسونا</em> في تطوير حلول برمجية لأبرز المؤسسات والشركات حول العالم</span>
+          </h2>
+        </header>
+      </div>
+      <div class="logo-marquee reveal" dir="ltr" aria-label="Clients">
+        <div class="track slow">
+          <ul>
+              <li class="logo-tile"><img src="assets/clients/wuroud-logo.png" alt="Madinat Al Wouroud" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sat-academy-logo.png" alt="SAT Academy" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/faro-logo.png" alt="FARO" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/vw-logo.png" alt="Volkswagen" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/al-obeikan-logo.png" alt="Al Obeikan" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sakani-logo.png" alt="Sakani" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/team-3-logo.png" alt="Team Three" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nob-logo.png" alt="NOB Marketing Solutions" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/wuroud-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sat-academy-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/faro-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/vw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/al-obeikan-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sakani-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/team-3-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nob-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+          </ul>
+          <ul aria-hidden="true">
+              <li class="logo-tile"><img src="assets/clients/wuroud-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sat-academy-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/faro-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/vw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/al-obeikan-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sakani-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/team-3-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nob-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/wuroud-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sat-academy-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/faro-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/vw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/al-obeikan-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/sakani-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/team-3-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nob-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="logo-marquee rev reveal" dir="ltr" aria-hidden="true">
+        <div class="track slower">
+          <ul>
+              <li class="logo-tile"><img src="assets/clients/bmw-logo.png" alt="BMW" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nissan-logo.png" alt="Nissan" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/siemens-logo.png" alt="Siemens" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nasa-logo.png" alt="NASA" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/rtw-logo.png" alt="Reward The World" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/san-bernardino-police-logo.png" alt="San Bernardino Police" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/bmw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nissan-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/siemens-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nasa-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/rtw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/san-bernardino-police-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/bmw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nissan-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/siemens-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nasa-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/rtw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/san-bernardino-police-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+          </ul>
+          <ul>
+              <li class="logo-tile"><img src="assets/clients/bmw-logo.png" alt="BMW" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nissan-logo.png" alt="Nissan" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/siemens-logo.png" alt="Siemens" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nasa-logo.png" alt="NASA" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/rtw-logo.png" alt="Reward The World" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/san-bernardino-police-logo.png" alt="San Bernardino Police" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/bmw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nissan-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/siemens-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nasa-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/rtw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/san-bernardino-police-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/bmw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nissan-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/siemens-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/nasa-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/rtw-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+              <li class="logo-tile"><img src="assets/clients/san-bernardino-police-logo.png" alt="" width="166" height="116" loading="lazy"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STATS ===================== -->
+    <section class="section stats-sec" id="stats">
+      <div class="wrap stats-wrap reveal">
+        <h3 class="stats-title">
+          <span class="en">Engineering done the right way</span>
+          <span class="ar" lang="ar">إتقان هندسي... كما يجب أن يكون</span>
+        </h3>
+        <div class="stats">
+          <div class="stat glass">
+            <div class="num" dir="ltr">258,973,012<small>+</small></div>
+            <p><span class="en">users use software &amp; hardware built by our engineers</span><span class="ar" lang="ar">مستخدم حول العالم يستخدمون البرمجيات والأجهزة التي صمّمها وطوّرها مهندسونا</span></p>
+          </div>
+          <div class="stat glass">
+            <div class="num" dir="ltr"><span class="count c99"></span><small>%</small></div>
+            <p><span class="en">average up-time across our cloud software worldwide*</span><span class="ar" lang="ar">متوسط معدل التوافر التشغيلي (<bdi dir="ltr">uptime</bdi>) لبرمجياتنا على السحاب على مستوى العالم*</span></p>
+          </div>
+          <div class="stat glass">
+            <div class="num" dir="ltr"><span class="count c30"></span><small>+</small></div>
+            <p><span class="en">years of experience under the belts of our engineers</span><span class="ar" lang="ar">عام من الخبرة المتراكمة التي يتمتع بها مهندسونا في أكبر وأعقد المشاريع التقنية</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INNOVATION ===================== -->
+    <section class="section innovation" id="innovation">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker"><span class="en">We make a difference</span><span class="ar" lang="ar">نحدث فرقاً</span></p>
+          <h2>
+            <span class="en">Pushing the <em>Boundaries</em> of Innovation</span>
+            <span class="ar" lang="ar">دفع حدود الابتكار إلى <em>آفاق جديدة</em></span>
+          </h2>
+          <p class="sub">
+            <span class="en">We thrive on venturing beyond the conventional limits of technology. Our teams are relentless in their pursuit of new frontiers, combining academic rigor with hands-on experimentation to pioneer cutting-edge software and hardware solutions. We don’t just adapt to the latest industry standards—we set them.</span>
+            <span class="ar" lang="ar">نزدهر باستكشاف ما يتجاوز الحدود التقليدية للتقنية. ويواصل فريقنا السعي بلا هوادة نحو آفاق جديدة، جامعاً بين الأسس الأكاديمية الراسخة والتجربة العملية لتطوير حلول برمجية وأجهزة إلكترونية رائدة تعتمد أحدث ما توصلت إليه التكنولوجيا. فنحن لا نكتفي بمواكبة أحدث معايير الصناعة، بل نحن من يحددها</span>
+          </p>
+        </header>
+
+        <div class="pillars">
+          <article class="card pillar reveal">
+            <svg class="ico big"><use href="#i-flask"/></svg>
+            <h3><span class="en">Research &amp; Development at the Core</span><span class="ar" lang="ar">البحث والتطوير في صميمنا</span></h3>
+            <p><span class="en">We dedicate substantial resources to R&amp;D, ensuring we’re always exploring emerging technologies and refining our expertise. By staying at the bleeding edge of software, AI, and advanced hardware design, we continuously expand what’s possible.</span><span class="ar" lang="ar">نخصص موارد كبيرة للبحث والتطوير، لضمان استكشاف أحدث التقنيات الناشئة وصقل خبراتنا باستمرار. ومن خلال البقاء في طليعة تطوير البرمجيات والذكاء الاصطناعي والتصميم المتقدم للأجهزة الإلكترونية، نواصل توسيع حدود الإمكانات وابتكار ما هو ممكن</span></p>
+          </article>
+          <article class="card pillar reveal">
+            <svg class="ico big"><use href="#i-users"/></svg>
+            <h3><span class="en">Collaborative Innovation</span><span class="ar" lang="ar">الابتكار القائم على التعاون</span></h3>
+            <p><span class="en">Our culture of collaboration fuels rapid iteration and breakthrough discoveries. We encourage every member of our team to question the status quo, prototype bold ideas, and transform concepts into tangible solutions that disrupt the market.</span><span class="ar" lang="ar">تُشكّل ثقافة التعاون ركيزة أساسية لنهجنا في الابتكار والاكتشاف، مما يسرّع وتيرة التطوير ويقود إلى تحقيق إنجازات نوعية. ونشجّع كل فرد في فريقنا على التشكيك في الوضع القائم، وبناء نماذج أولية لأفكار جريئة، وتحويل المفاهيم إلى حلول ملموسة تُحدث تحولاً جذرياً في السوق</span></p>
+          </article>
+          <article class="card pillar reveal">
+            <svg class="ico big"><use href="#i-target"/></svg>
+            <h3><span class="en">From Theory to Real-World Impact</span><span class="ar" lang="ar">من نظرية إلى أثر عملي محسوس</span></h3>
+            <p><span class="en">With a strong academic background, we delve into the theoretical underpinnings of new technologies—yet we remain laser-focused on practical results. By rigorously testing, fine-tuning, and implementing the best ideas, we bring next-generation capabilities to our clients’ projects.</span><span class="ar" lang="ar">انطلاقاً من أسس أكاديمية راسخة، نتعمق في الجوانب النظرية للتقنيات الحديثة، مع الحفاظ على تركيز كامل على تحقيق نتائج عملية. ومن خلال الاختبار الدقيق، والتحسين المستمر، وتطبيق أفضل الأفكار، نوظف أحدث القدرات التقنية في مشاريع عملائنا لنقدم حلولاً تواكب الجيل القادم من الابتكار</span></p>
+          </article>
+          <article class="card pillar reveal">
+            <svg class="ico big"><use href="#i-spark"/></svg>
+            <h3><span class="en">Relentless Curiosity</span><span class="ar" lang="ar">شغف لا ينضب بالاستكشاف</span></h3>
+            <p><span class="en">Our engineers and researchers are united by a shared curiosity to explore new possibilities. This insatiable drive keeps us on the forefront of innovation, enabling us to deliver state-of-the-art solutions that redefine industries.</span><span class="ar" lang="ar">يجمع مهندسينا وباحثينا شغفٌ مشترك لاستكشاف آفاق جديدة وإعادة تصور ما هو ممكن. ويقود هذا الفضول الدائم مسيرتنا نحو الريادة في الابتكار، مما يمكننا من تقديم حلول متطورة تعيد رسم ملامح الصناعات وتضع معايير جديدة للتميز</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="section services" id="services">
+      <div class="services-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="section-head center reveal">
+          <p class="kicker"><span class="en">Our services</span><span class="ar" lang="ar">خدماتنا</span></p>
+          <h2>
+            <span class="en">Unlock the <em>possibilities</em></span>
+            <span class="ar" lang="ar">أطلق العنان <em>للإمكانات</em></span>
+          </h2>
+        </header>
+
+        <div class="svc-grid">
+          <article class="card svc reveal">
+            <span class="idx">01</span>
+            <svg class="ico big"><use href="#i-globe"/></svg>
+            <h3><span class="en">Web App Development</span><span class="ar" lang="ar">تطوير برامج الويب</span></h3>
+            <p class="tagline"><span class="en">Innovative, full-stack, maintainable &amp; scalable</span><span class="ar" lang="ar">مبتكرة، متكاملة، مستدامة، وقابلة للتوسع</span></p>
+            <p class="headline"><span class="en">Transform Ideas into Elegant &amp; Scalable Web Experiences</span><span class="ar" lang="ar">نحوّل الأفكار إلى برامج ويب أنيقة، عالية الأداء، وقابلة للتوسع</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">We combine a wide range of languages, frameworks, and technologies—from front-end libraries like React, Angular, and Vue to robust back-end ecosystems such as Node.js, Python, .NET, PHP, and Laravel. By leveraging the right tools for each project, we deliver secure, scalable, and efficient web applications that captivate users and adapt to rapidly evolving market demands</span><span class="ar" lang="ar">نجمع بين مجموعة واسعة من لغات البرمجة وأطر العمل والتقنيات، بدءاً من مكتبات الواجهات مثل <bdi dir="ltr">React</bdi> و<bdi dir="ltr">Angular</bdi> و<bdi dir="ltr">Vue</bdi>، وصولاً إلى بيئات الخوادم القوية مثل <bdi dir="ltr">Node.js</bdi> و<bdi dir="ltr">Python</bdi> و<bdi dir="ltr">.NET</bdi> و<bdi dir="ltr">PHP</bdi> و<bdi dir="ltr">Laravel</bdi>. ومن خلال توظيف الأدوات والتقنيات الأنسب لكل مشروع، نطوّر برامج ويب آمنة، وقابلة للتوسع، وعالية الكفاءة، توفر تجربة استخدام متميزة وتتكيف بمرونة مع المتغيرات المتسارعة في الأسواق</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">02</span>
+            <svg class="ico big"><use href="#i-mobile"/></svg>
+            <h3><span class="en">Mobile App Development</span><span class="ar" lang="ar">تطوير تطبيقات الهواتف الذكية</span></h3>
+            <p class="tagline"><span class="en">Native &amp; cross-platform</span><span class="ar" lang="ar">تطبيقات مخصصة لنظام التشغيل أو متعددة الأنظمة</span></p>
+            <p class="headline"><span class="en">Empower Your Audience By Seamless Experiences on Every Device</span><span class="ar" lang="ar">مكّن جمهورك من الاستمتاع بتجارب سلسة على جميع الأجهزة</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">From elegant, user-friendly, high-performance native apps in Swift and Kotlin to cross-platform solutions built with Flutter and web technologies like Capacitor, our mobile development team delivers tailored products that balance efficiency, scalability, and user delight. By leveraging the latest frameworks and best practices, we ensure your mobile experience stands out, meeting market demands without compromising on quality or innovation</span><span class="ar" lang="ar">بدءاً من التطبيقات المخصصة لنظام التشغيل الأنيقة، سهلة الاستخدام، وعالية الأداء المطورة باستخدام <bdi dir="ltr">Swift</bdi> و<bdi dir="ltr">Kotlin</bdi>، وصولاً إلى الحلول متعددة أنظمة التشغيل المبنية باستخدام <bdi dir="ltr">Flutter</bdi> وتقنيات الويب مثل <bdi dir="ltr">Capacitor</bdi>، يطوّر فريقنا تطبيقات مخصصة تحقق التوازن بين الكفاءة، وقابلية التوسع، وتجربة المستخدم المتميزة. ومن خلال توظيف أحدث أطر العمل وأفضل الممارسات، نضمن تقديم تجربة استخدام استثنائية على الأجهزة المحمولة، تلبي متطلبات السوق دون أي تنازل عن الجودة أو الابتكار</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">03</span>
+            <svg class="ico big"><use href="#i-desktop"/></svg>
+            <h3><span class="en">Desktop App Development</span><span class="ar" lang="ar">تطوير برامج سطح المكتب</span></h3>
+            <p class="tagline"><span class="en">Native &amp; cross-platform solutions</span><span class="ar" lang="ar">تطبيقات مخصصة لنظام التشغيل أو متعددة الأنظمة</span></p>
+            <p class="headline"><span class="en">Performant Desktop Applications That Power Up Your Productivity</span><span class="ar" lang="ar">تطبيقات سطح مكتب عالية الأداء تعزز إنتاجيتك</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">We build powerful desktop applications for Windows, macOS, and Linux using the most fitting technologies—such as C# and .NET on Windows, Swift and Xcode on macOS, and C++ or Python on Linux. We also leverage cross-platform frameworks like Electron, Qt, and .NET MAUI to deliver consistent performance and user experiences across multiple operating systems.</span><span class="ar" lang="ar">نطوّر تطبيقات سطح مكتب قوية لأنظمة <bdi dir="ltr">Windows</bdi> و<bdi dir="ltr">macOS</bdi> و<bdi dir="ltr">Linux</bdi> باستخدام التقنيات الأكثر ملاءمة لكل منصة، مثل <bdi dir="ltr">C#</bdi> و<bdi dir="ltr">.NET</bdi> على نظام <bdi dir="ltr">Windows</bdi>، و<bdi dir="ltr">Swift</bdi> و<bdi dir="ltr">Xcode</bdi> على <bdi dir="ltr">macOS</bdi>، و<bdi dir="ltr">C++</bdi> أو <bdi dir="ltr">Python</bdi> على <bdi dir="ltr">Linux</bdi>. كما نوظف أطر العمل متعددة المنصات مثل <bdi dir="ltr">Electron</bdi> و<bdi dir="ltr">Qt</bdi> و<bdi dir="ltr">.NET MAUI</bdi> لتقديم تطبيقات تتميز بالأداء العالي وتجربة استخدام متسقة عبر مختلف أنظمة التشغيل</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">04</span>
+            <svg class="ico big"><use href="#i-cpu"/></svg>
+            <h3><span class="en">AI Services</span><span class="ar" lang="ar">خدمات الذكاء الاصطناعي</span></h3>
+            <p class="tagline"><span class="en">Data-driven artificial intelligence &amp; advanced analytics</span><span class="ar" lang="ar">الذكاء الاصطناعي المعتمد على البيانات والتحليلات المتقدمة</span></p>
+            <p class="headline"><span class="en">Harness the Power of AI Augmented Machine Learning</span><span class="ar" lang="ar">سخّر قوة الذكاء الاصطناعي والتعلم الآلي المعزز</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">We specialize in a broad spectrum of AI-driven solutions, leveraging machine learning, deep learning, and advanced data analytics to turn raw data into actionable intelligence. From predictive modeling and big data pipelines to web scraping and automated anomaly detection, our team designs and deploys custom algorithms tailored to your unique challenges. With robust training frameworks, rigorous validation processes, and best-in-class tools, we help organizations gain new insights, optimize decision-making, and stay ahead in an ever-evolving technological landscape</span><span class="ar" lang="ar">نتخصص في تقديم مجموعة واسعة من الحلول المدعومة بالذكاء الاصطناعي، مستفيدين من تقنيات التعلم الآلي (<bdi dir="ltr">ML</bdi>) والتعلم العميق (<bdi dir="ltr">Deep Learning</bdi>) وتحليلات البيانات المتقدمة لتحويل البيانات الخام إلى رؤى عملية قابلة للتنفيذ. بدءاً من النمذجة التنبؤية وبناء منصات معالجة البيانات الضخمة (<bdi dir="ltr">Big Data</bdi>)، وصولاً إلى استخلاص البيانات من الويب (<bdi dir="ltr">Web Scraping</bdi>) والكشف الآلي عن الشذوذ، يقوم فريقنا بتصميم وتطوير خوارزميات مخصصة تلبي احتياجاتكم وتواجه تحدياتكم الفريدة. ومن خلال أطر تدريب متقدمة، وعمليات تحقق دقيقة، وأفضل الأدوات والتقنيات العالمية، نمكّن المؤسسات من استخلاص رؤى أعمق، وتعزيز جودة اتخاذ القرار، والحفاظ على ريادتها في بيئة تقنية تتطور بوتيرة متسارعة</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">05</span>
+            <svg class="ico big"><use href="#i-chat"/></svg>
+            <h3><span class="en">AI Assistants (LLM)</span><span class="ar" lang="ar">مساعد الذكاء الاصطناعي (<bdi dir="ltr">LLM</bdi>)</span></h3>
+            <p class="tagline"><span class="en">Intelligent, adaptive &amp; tailored to you</span><span class="ar" lang="ar">ذكية، متكيفة، ومصممة خصيصاً لتلبية احتياجاتك</span></p>
+            <p class="headline"><span class="en">AI Augmented, Smart, Domain Specific &amp; Data Aware Conversational Chat-bots</span><span class="ar" lang="ar">ذكاء اصطناعي، متخصص في مجاله، مع وصول للبيانات الخاصة للعميل</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">Whether you’re looking to leverage industry-leading providers like OpenAI or Anthropic, or deploy a self-hosted open-source model, we deliver cutting-edge language chatbot solutions that seamlessly integrate with your existing applications. Our intelligent assistants draw not only on general knowledge but also on your unique data through vector databases and direct database connections—enabling real-time read/write operations for enhanced insights and interactions. By combining powerful provider agnostic LLM integrations with robust data pipelines, we create next-generation conversational experiences that elevate user engagement and productivity</span><span class="ar" lang="ar">سواءً كنتم تتطلعون إلى الاستفادة من نماذج الذكاء الاصطناعي الرائدة المقدمة من مزودين مثل <bdi dir="ltr">OpenAI</bdi> و<bdi dir="ltr">Anthropic</bdi>، أو تفضلون نشر نموذج مفتوح المصدر مستضاف داخل بنيتكم التحتية الخاصة، فإننا نقدم حلولاً متقدمة لمساعدي الذكاء الاصطناعي تتكامل بسلاسة مع تطبيقاتكم وأنظمتكم الحالية. ولا تعتمد هذه الأنظمة على المعرفة العامة فحسب، بل تستفيد أيضاً من بيانات مؤسستكم الخاصة عبر قواعد البيانات المتجهية (<bdi dir="ltr">Vector Databases</bdi>) والاتصال المباشر بقاعدة البيانات للعميل، مما يتيح تنفيذ عمليات القراءة والكتابة على البيانات في الوقت الفعلي لتوفير رؤى أعمق وتفاعلات أكثر ذكاءً. ومن خلال دمج نماذج اللغة الكبيرة (<bdi dir="ltr">LLMs</bdi>) بطريقة محايدة تجاه مزود الخدمة، إلى جانب خطوط معالجة بيانات قوية ومرنة، نبتكر تجارب محادثة من الجيل القادم تعزز تفاعل المستخدمين، وترفع مستويات الإنتاجية، وتضيف قيمة حقيقية لأعمالكم</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">06</span>
+            <svg class="ico big"><use href="#i-plug"/></svg>
+            <h3><span class="en">Integration Services</span><span class="ar" lang="ar">خدمات الربط والتكامل البرمجي</span></h3>
+            <p class="tagline"><span class="en">Unified data flows &amp; seamless connectivity</span><span class="ar" lang="ar">تدفق موحّد للبيانات واتصال سلس</span></p>
+            <p class="headline"><span class="en">Bridging Systems, Empowering Growth. Fail-safe &amp; Fail-operational Integrations</span><span class="ar" lang="ar">تكاملات عالية الاعتمادية وقادرة على الاستمرار في العمل حتى عند حدوث الأعطال</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">Our team specializes in securely and seamlessly integrating your systems with a range of external services, whether it’s popular third-party APIs or proprietary platforms. From REST and GraphQL to SOAP and microservices architectures, we streamline data flows and unify your tech stack. By delivering well-documented, scalable, and efficient integration solutions, we help you unlock new capabilities, reduce operational complexity, and enhance overall performance</span><span class="ar" lang="ar">يتخصص فريقنا في دمج أنظمتكم مع مجموعة واسعة من الخدمات والمنصات الخارجية بطريقة آمنة وسلسة، سواء كانت واجهات برمجة تطبيقات (<bdi dir="ltr">APIs</bdi>) شائعة أو منصات وأنظمة خاصة. بدءاً من <bdi dir="ltr">REST</bdi> و<bdi dir="ltr">GraphQL</bdi> ووصولاً إلى <bdi dir="ltr">SOAP</bdi> وبنى الخدمات المصغرة (<bdi dir="ltr">Microservices</bdi>)، نعمل على توحيد تدفقات البيانات وربط مكونات منظومتكم التقنية ضمن بيئة متكاملة. ومن خلال تقديم حلول تكامل موثقة، وقابلة للتوسع، وعالية الكفاءة، نمكّنكم من الاستفادة من إمكانات جديدة، وتقليل التعقيد التشغيلي، وتعزيز الأداء العام، مع ضمان استمرارية الخدمات وموثوقيتها حتى في حالات الأعطال أو الإخفاقات</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">07</span>
+            <svg class="ico big"><use href="#i-cluster"/></svg>
+            <h3><span class="en">Cluster Computing</span><span class="ar" lang="ar">الحوسبة العنقودية (<bdi dir="ltr">Cluster</bdi>)</span></h3>
+            <p class="tagline"><span class="en">Scalable, high-performance parallel solutions</span><span class="ar" lang="ar">حلول متوازية قابلة للتوسع وعالية الأداء</span></p>
+            <p class="headline"><span class="en">Expand Your Compute Power</span><span class="ar" lang="ar">وسّع القدرة الحاسوبية</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">Harness the power of multi-node clusters—from cost-effective Raspberry Pi arrays to enterprise-scale systems—to tackle data-intensive workloads with ease. We architect distributed computing solutions using containerization, orchestration frameworks, and cutting-edge networking to deliver high availability, fault tolerance, and unrivaled performance. Whether you’re building a testbed for AI research or running mission-critical analytics, our cluster computing expertise ensures robust, scalable, and future-ready results</span><span class="ar" lang="ar">استفد من قوة الحوسبة العنقودية عبر عناقيد متعددة العقد، بدءاً من التجمعات الاقتصادية المعتمدة على <bdi dir="ltr">Raspberry Pi</bdi> ووصولاً إلى الأنظمة المؤسسية واسعة النطاق، لمعالجة أحمال العمل كثيفة البيانات بكفاءة عالية. نقوم بتصميم بنى حوسبة موزعة تعتمد على الحاويات (<bdi dir="ltr">Containers</bdi>)، ومنصات تنسيق الحاويات (<bdi dir="ltr">Container Orchestration</bdi>)، وأحدث تقنيات الشبكات، لتوفير مستويات عالية من التوافر، وتحمل الأعطال، والأداء الاستثنائي. وسواء كنتم تنشئون بيئة اختبار لأبحاث الذكاء الاصطناعي، أو تشغلون أنظمة تحليل بيانات بالغة الأهمية للأعمال، فإن خبراتنا في الحوسبة العنقودية تضمن لكم حلولاً قوية، قابلة للتوسع، وجاهزة لمواكبة متطلبات المستقبل</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">08</span>
+            <svg class="ico big"><use href="#i-wall"/></svg>
+            <h3><span class="en">Video Walls</span><span class="ar" lang="ar">شاشات العرض الجدارية</span></h3>
+            <p class="tagline"><span class="en">Large-scale, interactive display solutions</span><span class="ar" lang="ar">حلول عرض تفاعلية واسعة النطاق</span></p>
+            <p class="headline"><span class="en">Captivate. Collaborate. Engage.</span><span class="ar" lang="ar">أبهر. تعاون. تفاعل.</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">Experience immersive visuals on a massive scale with a cost-effective video wall built from multiple 4K TVs, each pair powered by a Raspberry Pi for high performance at lower costs. Our distributed architecture ensures that each node handles a dedicated portion of the display—enabling full-motion video, interactive web and Linux apps, and real-time content updates. Whether for corporate lobbies, command centers, or dynamic events, our video wall solutions deliver an expansive, cohesive visual experience that captivates your audience and drives engagement</span><span class="ar" lang="ar">استمتع بتجربة بصرية غامرة على نطاق واسع من خلال جدران عرض مرئي اقتصادية تعتمد على تجميع عدة شاشات <bdi dir="ltr">4K</bdi>، بحيث تتولى كل وحدة <bdi dir="ltr">Raspberry Pi</bdi> تشغيل زوج من الشاشات لتحقيق أداء عالٍ بتكلفة أقل. تعتمد حلولنا على بنية موزعة، حيث تتولى كل عقدة معالجة جزء مخصص من مساحة العرض، مما يتيح تشغيل مقاطع الفيديو عالية الجودة، وتطبيقات الويب وأنظمة <bdi dir="ltr">Linux</bdi> التفاعلية، بالإضافة إلى تحديث المحتوى في الوقت الفعلي بسلاسة وكفاءة. وسواء كان الاستخدام في الردهات المؤسسية، أو مراكز القيادة والتحكم، أو المعارض والفعاليات التفاعلية، فإن حلول جدران العرض التي نقدمها توفر تجربة بصرية موحدة، واسعة النطاق، وآسرة، تعزز تفاعل الجمهور وتترك انطباعاً دائماً</span></p>
+            </details>
+          </article>
+          <article class="card svc reveal">
+            <span class="idx">09</span>
+            <svg class="ico big"><use href="#i-robot"/></svg>
+            <h3><span class="en">Industrial Automation &amp; Robotics</span><span class="ar" lang="ar">الأتمتة الصناعية والأنظمة الروبوتية</span></h3>
+            <p class="tagline"><span class="en">Next-generation production solutions</span><span class="ar" lang="ar">حلول إنتاجية من الجيل القادم</span></p>
+            <p class="headline"><span class="en">Automate. Innovate. Dominate.</span><span class="ar" lang="ar">أتمت. ابتكر. ارتقِ بالريادة.</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">We combine PLC-based systems, advanced robotics, and microcontroller-driven platforms to deliver robust, cutting-edge solutions that accelerate manufacturing processes. From real-time monitoring and data acquisition to optimization algorithms, our team helps businesses modernize operations, reduce downtime, and maximize productivity—ensuring they remain competitive in an ever-evolving industrial landscape</span><span class="ar" lang="ar">نجمع بين أنظمة <bdi dir="ltr">PLC</bdi>، والروبوتات المتقدمة، والمنصات المعتمدة على المتحكمات الدقيقة (<bdi dir="ltr">Microcontrollers</bdi>) لتقديم حلول صناعية متطورة وعالية الاعتمادية تسهم في تسريع العمليات الإنتاجية ورفع كفاءتها. بدءاً من المراقبة اللحظية وجمع البيانات، وصولاً إلى خوارزميات التحسين والتحكم الذكي، يساعد فريقنا المؤسسات على تحديث عملياتها الصناعية، وتقليل فترات التوقف، وتعظيم الإنتاجية، بما يضمن الحفاظ على قدرتها التنافسية في بيئة صناعية تتطور بوتيرة متسارعة</span></p>
+            </details>
+          </article>
+          <article class="card svc svc-wide reveal">
+            <span class="idx">10</span>
+            <svg class="ico big"><use href="#i-flow"/></svg>
+            <div class="svc-body">
+            <h3><span class="en">Workflow Transformation</span><span class="ar" lang="ar">أتمتة وتحسين سير العمل</span></h3>
+            <p class="tagline"><span class="en">Elevated efficiency, reduce bottlenecks</span><span class="ar" lang="ar">رفع الكفاءة وتقليل الاختناقات التشغيلية</span></p>
+            <p class="headline"><span class="en">Reinvent the Way Your Team Works &amp; Maximize Productivity</span><span class="ar" lang="ar">أعد ابتكار أسلوب عمل فريقك وعظّم إنتاجيته</span></p>
+            <details>
+              <summary><span class="en">Read more</span><span class="ar" lang="ar">اقرأ المزيد</span></summary>
+              <p><span class="en">We begin by thoroughly mapping out your organization’s existing processes to identify hidden inefficiencies, bottlenecks, and opportunities for improvement. Drawing on a holistic range of technologies—from web and mobile apps to AI and hardware—we craft tailored solutions that streamline workflows, reduce manual effort, and ensure digital compliance. Our approach enables teams to operate more efficiently, make data-driven decisions, and stay competitive in an ever-evolving digital landscape</span><span class="ar" lang="ar">نبدأ بدراسة وتحليل سير العمل الحالي في مؤسستكم بصورة شاملة، بهدف الكشف عن أوجه القصور الخفية، والاختناقات التشغيلية، وفرص التحسين والتطوير. وانطلاقاً من منظومة متكاملة من التقنيات، تشمل تطبيقات الويب والأجهزة المحمولة، والذكاء الاصطناعي، والحلول العتادية، نقوم بتصميم حلول مخصصة تعمل على تبسيط سير العمل، وتقليل المهام اليدوية، وضمان الامتثال الرقمي، ورفع كفاءة العمليات. ويُمكّن هذا النهج فرق العمل من أداء مهامها بكفاءة أعلى، واتخاذ قرارات مبنية على البيانات، وتعزيز قدرتها على المنافسة في بيئة رقمية سريعة التطور</span></p>
+            </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VALUES ===================== -->
+    <section class="section values" id="values">
+      <div class="wrap">
+        <header class="section-head center reveal">
+          <p class="kicker"><span class="en">Why BinaryBlazar</span><span class="ar" lang="ar">لماذا <bdi dir="ltr">BinaryBlazar</bdi></span></p>
+          <h2>
+            <span class="en">Unveiling our core values for <em>lasting real-world impact</em></span>
+            <span class="ar" lang="ar">قيمنا الجوهرية لتحقيق <em>أثر مستدام في العالم الحقيقي</em></span>
+          </h2>
+        </header>
+
+        <div class="val-grid">
+          <article class="val reveal">
+            <svg class="ico"><use href="#i-book"/></svg>
+            <h3><span class="en">Academic &amp; Practical Mastery</span><span class="ar" lang="ar">التميز الأكاديمي والخبرة العملية</span></h3>
+            <p><span class="en">Our engineers bring together advanced academic knowledge and real-world experience. This combination of theory and hands-on skill empowers us to tackle complex challenges and develop cutting-edge solutions that stand the test of time.</span><span class="ar" lang="ar">يجمع مهندسونا بين المعرفة الأكاديمية المتقدمة والخبرة العملية الميدانية، مما يمنحنا القدرة على معالجة أكثر التحديات تعقيداً وتطوير حلول برمجية وعتادية مبتكرة تتميز بالموثوقية والاستدامة، وتواصل تقديم قيمتها على المدى الطويل</span></p>
+          </article>
+          <article class="val reveal">
+            <svg class="ico"><use href="#i-cpu"/></svg>
+            <h3><span class="en">AI-Augmented Innovation</span><span class="ar" lang="ar">الابتكار المعزز بالذكاء الاصطناعي</span></h3>
+            <p><span class="en">We harness the transformative power of Artificial Intelligence to deliver groundbreaking software and hardware solutions. Guided by our deep technical expertise, we consistently push boundaries and redefine what’s possible and beyond.</span><span class="ar" lang="ar">نسخّر الإمكانات التحويلية للذكاء الاصطناعي لتطوير حلول برمجية وعتادية رائدة. وبالاعتماد على خبراتنا التقنية العميقة، نواصل دفع حدود الابتكار، وإعادة تعريف ما هو ممكن، واستكشاف آفاق تتجاوز المألوف</span></p>
+          </article>
+          <article class="val reveal">
+            <svg class="ico"><use href="#i-shield"/></svg>
+            <h3><span class="en">Excellence &amp; Precision</span><span class="ar" lang="ar">التميز والدقة</span></h3>
+            <p><span class="en">We strive for perfection in every endeavor—from code quality to hardware craftsmanship. By applying rigorous standards and thorough testing, we ensure that our products excel in functionality, reliability, and performance.</span><span class="ar" lang="ar">نسعى إلى تحقيق أعلى معايير الجودة في كل ما نقدمه، بدءاً من جودة البرمجيات ووصولاً إلى دقة تصميم وتنفيذ الحلول العتادية. ومن خلال تطبيق معايير صارمة وإجراءات اختبار شاملة، نضمن أن تتميز حلولنا بالاعتمادية، والأداء العالي، والكفاءة التشغيلية</span></p>
+          </article>
+          <article class="val reveal">
+            <svg class="ico"><use href="#i-refresh"/></svg>
+            <h3><span class="en">Continuous Learning</span><span class="ar" lang="ar">التعلّم المستمر</span></h3>
+            <p><span class="en">The tech world never stands still. We stay on the forefront of innovation by continually refining our academic knowledge, embracing new methodologies, and adapting to emerging market needs.</span><span class="ar" lang="ar">يشهد العالم التقني تطوراً متسارعاً لا يتوقف، ولذلك نحرص على مواصلة تطوير معارفنا الأكاديمية، واعتماد أحدث المنهجيات، ومواكبة احتياجات الأسواق المتغيرة، لنظل في طليعة الابتكار والتقدم التقني</span></p>
+          </article>
+          <article class="val reveal">
+            <svg class="ico"><use href="#i-target"/></svg>
+            <h3><span class="en">Client-Centric Solutions</span><span class="ar" lang="ar">حلول تتمحور حول العميل</span></h3>
+            <p><span class="en">Our customers’ goals drive everything we do. We invest time in understanding their unique needs to design and build tailor-made solutions—both in software and hardware—that deliver tangible, long-term value.</span><span class="ar" lang="ar">تشكل أهداف عملائنا الأساس الذي نبني عليه جميع أعمالنا. لذا نستثمر الوقت في فهم احتياجاتهم وتحدياتهم بدقة، لنصمم ونطور حلولاً برمجية وعتادية مخصصة تحقق نتائج ملموسة وتوفر قيمة مستدامة على المدى الطويل</span></p>
+          </article>
+          <article class="val reveal">
+            <svg class="ico"><use href="#i-gauge"/></svg>
+            <h3><span class="en">Pragmatic &amp; Value-Oriented</span><span class="ar" lang="ar">الواقعية والتركيز على تحقيق القيمة</span></h3>
+            <p><span class="en">The “best” solution isn’t always the “right” solution if it doesn’t align with budget or time constraints. We combine our pursuit of technical excellence with a pragmatic approach, tailoring solutions that deliver maximum value within real-world limits.</span><span class="ar" lang="ar">ليست أكثر الحلول تطوراً هي دائماً الأنسب إذا لم تتوافق مع الميزانية أو الإطار الزمني للمشروع. لذلك نجمع بين التميز التقني والرؤية العملية، لنقدم حلولاً تحقق أعلى قيمة ممكنة ضمن القيود والمتطلبات الواقعية، مع الحفاظ على الجودة والكفاءة</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <div class="cta-panel reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <p class="kicker"><span class="en">Contact</span><span class="ar" lang="ar">تواصل</span></p>
+          <h2>
+            <span class="en">Connect with us and <em>innovate</em></span>
+            <span class="ar" lang="ar">تواصل معنا... ولنبتكر <em>المستقبل معاً</em></span>
+          </h2>
+          <p class="sub">
+            <span class="en">We’re eager to explore new frontiers in software, AI, and hardware alongside you. Whether you have a bold idea, a complex challenge, or just want to brainstorm possibilities, let’s start a conversation. Get in touch with us, and together we’ll shape the future of your vision.</span>
+            <span class="ar" lang="ar">نتطلع إلى استكشاف آفاق جديدة في مجالات البرمجيات، والذكاء الاصطناعي، والأجهزة الإلكترونية بالشراكة معكم. سواء كانت لديكم فكرة طموحة، أو تحدٍ تقني معقد، أو رغبة في مناقشة فرص جديدة للابتكار، فإن فريقنا على استعداد للاستماع والعمل معكم. تواصلوا معنا اليوم، ولنعمل معاً على تحويل رؤيتكم إلى حلول مبتكرة تصنع مستقبلاً أكثر تطوراً ونجاحاً</span>
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:info@binaryblazar.com">
+              <svg class="ico"><use href="#i-mail"/></svg>
+              <span class="en">info@binaryblazar.com</span><span class="ar" lang="ar">info@binaryblazar.com</span>
+            </a>
+            <a class="btn btn-ghost" href="tel:+13079984872">
+              <svg class="ico"><use href="#i-phone"/></svg>
+              <bdi dir="ltr">+1 307 998 4872</bdi>
+            </a>
+            <a class="btn btn-whatsapp" href="https://wa.me/13079984872" target="_blank" rel="noopener">
+              <svg class="ico"><use href="#i-whatsapp"/></svg>
+              <span class="en">Chat on WhatsApp</span><span class="ar" lang="ar">تواصل عبر واتساب</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="offices">
+          <article class="office card reveal">
+            <span class="cc">US</span>
+            <h3><span class="en">USA</span><span class="ar" lang="ar">الولايات المتحدة</span></h3>
+            <p class="loc"><svg class="ico"><use href="#i-pin"/></svg><span class="en">Sheridan, WY</span><span class="ar" lang="ar">شيريدان، وايومنغ</span></p>
+            <a href="tel:+13079984872"><svg class="ico"><use href="#i-phone"/></svg><bdi dir="ltr">+1 307 998 4872</bdi></a>
+          </article>
+          <article class="office card reveal">
+            <span class="cc">PT</span>
+            <h3><span class="en">Portugal</span><span class="ar" lang="ar">البرتغال</span></h3>
+            <p class="loc"><svg class="ico"><use href="#i-pin"/></svg><span class="en">Tomar, Santarém</span><span class="ar" lang="ar">تومار، سانتارِم</span></p>
+            <a href="tel:+351938111603"><svg class="ico"><use href="#i-phone"/></svg><bdi dir="ltr">+351 938 111 603</bdi></a>
+          </article>
+          <article class="office card reveal">
+            <span class="cc">AE</span>
+            <h3><span class="en">UAE</span><span class="ar" lang="ar">الإمارات</span></h3>
+            <p class="loc"><svg class="ico"><use href="#i-pin"/></svg><span class="en">Nad Al Sheba, Dubai</span><span class="ar" lang="ar">ند الشبا، دبي</span></p>
+            <a href="tel:+13079984872"><svg class="ico"><use href="#i-phone"/></svg><bdi dir="ltr">+1 307 998 4872</bdi></a>
+          </article>
+          <article class="office card soon reveal">
+            <span class="cc">SA</span>
+            <h3><span class="en">Saudi Arabia</span><span class="ar" lang="ar">السعودية</span></h3>
+            <p class="loc"><svg class="ico"><use href="#i-pin"/></svg><span class="en">Coming Soon</span><span class="ar" lang="ar">قريباً</span></p>
+            <a href="tel:+966593030123"><svg class="ico"><use href="#i-phone"/></svg><bdi dir="ltr">+966 59 3030 123</bdi></a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo-full-white.svg" alt="BinaryBlazar" width="183" height="24" loading="lazy">
+        <p>
+          <span class="en">Innovate. Previously known as fedasoft.</span>
+          <span class="ar" lang="ar">ابتكر. المعروفة سابقاً باسم <bdi dir="ltr">Fedasoft</bdi>.</span>
+        </p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="#about"><span class="en">About</span><span class="ar" lang="ar">من نحن</span></a>
+        <a href="#innovation"><span class="en">Innovation</span><span class="ar" lang="ar">الابتكار</span></a>
+        <a href="#services"><span class="en">Services</span><span class="ar" lang="ar">خدماتنا</span></a>
+        <a href="#values"><span class="en">Values</span><span class="ar" lang="ar">قيمنا</span></a>
+        <a href="#contact"><span class="en">Contact</span><span class="ar" lang="ar">تواصل معنا</span></a>
+      </nav>
+      <div class="foot-social">
+        <a href="mailto:info@binaryblazar.com" aria-label="Email"><svg class="ico"><use href="#i-mail"/></svg></a>
+        <a href="https://linkedin.com/company/binaryblazar" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico"><use href="#i-in"/></svg></a>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">
+      <p>
+        <span class="en">© 2026 BinaryBlazar. All rights reserved.</span>
+        <span class="ar" lang="ar">© 2026 BinaryBlazar. جميع الحقوق محفوظة.</span>
+      </p>
+      <p class="note">
+        <span class="en">* Average up-time across our cloud software worldwide.</span>
+        <span class="ar" lang="ar">* متوسط معدل التوافر التشغيلي (<bdi dir="ltr">uptime</bdi>) لبرمجياتنا على السحاب على مستوى العالم.</span>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
